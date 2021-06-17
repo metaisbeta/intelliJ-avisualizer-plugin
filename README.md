@@ -1,0 +1,1 @@
+# intelliJ-avisualizer-plugin
