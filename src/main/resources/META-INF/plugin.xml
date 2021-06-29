@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>org.jetbrains.plugins.template</id>
+    <name>Template</name>
+    <vendor>JetBrains</vendor>
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <projectService serviceImplementation="org.jetbrains.plugins.template.AVisualizerToolWindow"/>
+        <toolWindow id="ASnifferBrowser" icon="/icons/icon.svg" anchor="right"
+                    factoryClass="org.jetbrains.plugins.template.WindowFactory"/>
+
+    </extensions>
+</idea-plugin>
