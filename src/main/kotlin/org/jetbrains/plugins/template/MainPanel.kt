@@ -14,7 +14,8 @@ import javax.swing.JTextField
 @Suppress("UnstableApiUsage")
 class MainPanel : SimpleToolWindowPanel(true, true), Disposable {
 
-    private val URL = "https://avisualizer.herokuapp.com/"
+    //private val URL = "https://avisualizer.herokuapp.com/"
+    private val URL = "http://localhost:8080"
 
     init {
         initGivPanel()
@@ -22,10 +23,6 @@ class MainPanel : SimpleToolWindowPanel(true, true), Disposable {
 
     private fun initGivPanel() {
         val jbCefBrowser = JBCefBrowser(URL)
-//        val myDevTools: CefBrowser = jbCefBrowser.getCefBrowser().getDevTools()
-//        val myDevToolsBrowser = JBCefBrowser(myDevTools, jbCefBrowser.getJBCefClient())
-//        myDevToolsBrowser.age
-
         val divPanel = JPanel(BorderLayout())
         divPanel.border = IdeBorderFactory.createBorder(UIUtil.getBoundsColor(), SideBorder.ALL)
         divPanel.add(jbCefBrowser.component, BorderLayout.CENTER)
@@ -41,6 +38,4 @@ class MainPanel : SimpleToolWindowPanel(true, true), Disposable {
     }
 
     override fun dispose() {}
-
-
 }
