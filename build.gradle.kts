@@ -28,7 +28,7 @@ repositories {
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
-    //implementation("io.github.phillima:asniffer:2.4.3")
+    implementation("io.github.phillima:asniffer:2.4.4")
     implementation(files("/libs/avisualizer-back.jar"))
     //implementation("io.github.phillima:avisualizer:0.0.1")
 }
