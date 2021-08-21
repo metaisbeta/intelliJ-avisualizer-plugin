@@ -25,12 +25,12 @@ version = properties("pluginVersion")
 // Configure project's dependencies
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
-    //implementation("io.github.phillima:asniffer:2.4.3")
-    implementation(files("/libs/avisualizer-back.jar"))
-    //implementation("io.github.phillima:avisualizer:0.0.1")
+    implementation("io.github.phillima:asniffer:2.4.4")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.0")
 }
 
 // Configure gradle-intellij-plugin plugin.

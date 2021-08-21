@@ -14,7 +14,6 @@ import javax.swing.JTextField
 @Suppress("UnstableApiUsage")
 class MainPanel : SimpleToolWindowPanel(true, true), Disposable {
 
-    //private val URL = "https://avisualizer.herokuapp.com/"
     private val URL = "http://localhost:8080"
 
     init {
