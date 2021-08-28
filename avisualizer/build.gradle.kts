@@ -1,3 +1,6 @@
+import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.task.NodeTask
+
 plugins {
   // Gradle Node
   id("com.github.node-gradle.node") version "3.1.0"
@@ -23,8 +26,7 @@ tasks.npmInstall {
   }
 }
 
-tasks.create<com.github.gradle.node.task.NodeTask>("runNode") {
-  dependsOn(tasks.npmInstall)
+tasks.create<NodeTask>("runNode") {
   workingDir.set(projectDir)
   script.set(file("app.js"))
 }
