@@ -4,7 +4,7 @@ plugins {
 }
 
 node {
-  version.set("12.18.3")
+  version.set("14.17.5")
   npmVersion.set("")
   yarnVersion.set("")
   npmInstallCommand.set("install")
@@ -17,6 +17,14 @@ node {
   nodeProxySettings.set(com.github.gradle.node.npm.proxy.ProxySettings.SMART)
 }
 
+tasks.npmInstall {
+  nodeModulesOutputFilter {
+    exclude("notExistingFile")
+  }
+}
+
 tasks.create<com.github.gradle.node.task.NodeTask>("runNode") {
+  dependsOn(tasks.npmInstall)
+  workingDir.set(projectDir)
   script.set(file("app.js"))
 }
