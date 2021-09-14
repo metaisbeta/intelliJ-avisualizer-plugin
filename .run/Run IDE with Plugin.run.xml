@@ -12,7 +12,6 @@
       <option name="taskNames">
         <list>
           <option value="runIde" />
-          <option value="runNode" />
         </list>
       </option>
       <option name="vmOptions" value="" />

@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>org.jetbrains.plugins.template</id>
-    <name>Template</name>
-    <vendor>JetBrains</vendor>
+    <name>ASnifferVisualizer</name>
+    <vendor>MetaIsBeta</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -14,4 +14,14 @@
                     factoryClass="org.jetbrains.plugins.template.WindowFactory"/>
 
     </extensions>
+
+    <actions>
+        <group id="ASnifferVisualizer.RunAsniffer" text="Asniffer Plugin" description="Asniffer methods">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action class="org.jetbrains.plugins.template.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsniffer"
+                    text="Run Asniffer"/>
+            <action class="org.jetbrains.plugins.template.services.AvisualizerService" id="ASnifferVisualizer.Actions.ExecuteAvisualizer"
+                    text="Update Avisualizer"/>
+        </group>
+    </actions>
 </idea-plugin>
