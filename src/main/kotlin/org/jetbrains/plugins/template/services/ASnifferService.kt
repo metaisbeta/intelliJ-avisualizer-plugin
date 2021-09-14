@@ -22,5 +22,4 @@ class ASnifferService : AnAction() {
             JSONReportPV().generateReport(report, dirPathResults)
         }
     }
-
 }
