@@ -5,7 +5,7 @@ import com.intellij.openapi.project.Project
 class MyProjectService(project: Project) {
 
     init {
-
+        print(project.name)
     }
 
 }

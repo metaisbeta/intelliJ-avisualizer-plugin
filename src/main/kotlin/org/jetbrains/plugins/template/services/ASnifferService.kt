@@ -7,6 +7,7 @@ import com.github.phillima.asniffer.output.json.d3hierarchy.packageview.JSONRepo
 import com.github.phillima.asniffer.output.json.d3hierarchy.systemview.JSONReportSV
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import org.jetbrains.concurrency.runAsync
 import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -15,7 +16,11 @@ import java.nio.file.Paths
 class ASnifferService : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
-        runAsniffer(e)
+        runAsync {
+            runAsniffer(e)
+        }.onSuccess {
+            print("acabou");
+        }
     }
 
     fun runAsniffer(e: AnActionEvent) {
@@ -37,4 +42,5 @@ class ASnifferService : AnAction() {
             JSONReportPV().generateReport(report, dirPathResults)
         }
     }
+
 }
