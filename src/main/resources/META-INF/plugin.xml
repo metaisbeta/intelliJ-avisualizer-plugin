@@ -6,12 +6,18 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <idea-version since-build="203"/>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
-        <projectService serviceImplementation="org.jetbrains.plugins.template.AVisualizerToolWindow"/>
-        <toolWindow id="ASnifferBrowser" icon="/icons/icon.svg" anchor="right"
-                    factoryClass="org.jetbrains.plugins.template.WindowFactory"/>
+
+
+        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.GivServiceSettings"/>
+        <projectConfigurable parentId="tools" instance="org.jetbrains.plugins.template.settings.ProjectSettingsConfigurable"
+                             id="org.jetbrains.plugins.template.settings.ProjectSettingsConfigurable" displayName="Avisualizer Embedded Browser"
+                             nonDefaultProject="true"/>
+
+        <toolWindow id="GIdeaBrowser" icon="/icons/icon.svg" anchor="right" factoryClass="org.jetbrains.plugins.template.GivToolWindowFactory"/>
 
     </extensions>
 

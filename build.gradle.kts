@@ -7,12 +7,13 @@ plugins {
     // Java support
     id("java")
     // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.5.10"
+    id("org.jetbrains.kotlin.jvm") version "1.5.31"
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
     id("org.jetbrains.intellij") version "1.1.6"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "1.3.0"
     id("org.jetbrains.qodana") version "0.1.12"
+    kotlin("plugin.serialization") version "1.5.31"
 }
 
 group = properties("pluginGroup")
@@ -24,8 +25,9 @@ repositories {
     gradlePluginPortal()
 }
 dependencies {
-    implementation("io.github.phillima:asniffer:2.4.7")
+    implementation("io.github.phillima:asniffer:3.0.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.0")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+")
 }
 
 // Configure gradle-intellij-plugin plugin.
