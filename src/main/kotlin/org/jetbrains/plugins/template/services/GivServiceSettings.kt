@@ -52,7 +52,7 @@ class GivServiceSettings : PersistentStateComponent<GivServiceSettings.State> {
     }
 
     class State {
-        var homePage: String = "https://avisualizer-plugin.herokuapp.com/"
+        var homePage: String = "https://avisualizer.vercel.app/"
         val favorites = mutableListOf<Pair<String, JBImageIcon>>()
     }
 

@@ -31,7 +31,7 @@ class ASnifferService : AnAction() {
         runAsync {
             runAsniffer(e)
         }.onSuccess {
-            print("acabou");
+
         }
     }
 
@@ -64,7 +64,7 @@ class ASnifferService : AnAction() {
 
             val client = HttpClient.newBuilder().build();
             val request = HttpRequest.newBuilder()
-                .uri(URI.create("https://avisualizer-plugin.herokuapp.com/data/save"))
+                .uri(URI.create("https://asniffer-web-api.herokuapp.com/data/save"))
                 .header("Content-Type","application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                 .build()
@@ -72,7 +72,7 @@ class ASnifferService : AnAction() {
 
             val modelResponse: AvisualizerModelResponse = mapper.readValue(response.body())
 
-            GivServiceSettings.instance().addFavorite("https://avisualizer-plugin.herokuapp.com?projeto=${modelResponse.id}")
+            GivServiceSettings.instance().addFavorite("https://avisualizer.vercel.app?projeto=${modelResponse.id}")
             val bus = ApplicationManager.getApplication().messageBus
             bus.syncPublisher(SettingsChangedAction.TOPIC).settingsChanged()
         }

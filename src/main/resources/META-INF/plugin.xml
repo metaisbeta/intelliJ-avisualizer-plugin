@@ -17,7 +17,7 @@
                              id="org.jetbrains.plugins.template.settings.ProjectSettingsConfigurable" displayName="Avisualizer Embedded Browser"
                              nonDefaultProject="true"/>
 
-        <toolWindow id="GIdeaBrowser" icon="/icons/icon.svg" anchor="right" factoryClass="org.jetbrains.plugins.template.GivToolWindowFactory"/>
+        <toolWindow id="Asniffer Plugin" icon="/icons/icon.svg" anchor="right" factoryClass="org.jetbrains.plugins.template.GivToolWindowFactory"/>
 
     </extensions>
 

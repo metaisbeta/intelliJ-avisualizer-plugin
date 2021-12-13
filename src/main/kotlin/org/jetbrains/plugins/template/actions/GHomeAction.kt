@@ -14,6 +14,6 @@ class GHomeAction(private val jbCefBrowser: JBCefBrowser, icon: Icon) : AnAction
     }
 
     override fun actionPerformed(e: AnActionEvent) {
-        jbCefBrowser.loadURL("https://avisualizer-plugin.herokuapp.com/")
+        jbCefBrowser.loadURL("https://avisualizer.vercel.app/")
     }
 }
