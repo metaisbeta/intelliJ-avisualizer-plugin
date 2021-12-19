@@ -17,15 +17,15 @@
                              id="org.metaisbeta.plugins.asniffer.settings.ProjectSettingsConfigurable" displayName="Avisualizer Embedded Browser"
                              nonDefaultProject="true"/>
 
-        <toolWindow id="Asniffer Plugin" icon="/icons/icon.svg" anchor="right" factoryClass="org.metaisbeta.plugins.asniffer.GivToolWindowFactory"/>
+        <toolWindow id="Asniffer Tools Visualization" icon="/icons/icon.svg" anchor="right" factoryClass="org.metaisbeta.plugins.asniffer.GivToolWindowFactory"/>
 
     </extensions>
 
     <actions>
-        <group id="ASnifferVisualizer.RunAsniffer" text="Asniffer Plugin" description="Asniffer methods">
+        <group id="ASnifferVisualizer.RunAsniffer" text="Asniffer Tools" description="Asniffer Tools">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action class="org.metaisbeta.plugins.asniffer.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsniffer"
-                    text="Run Asniffer"/>
+                    text="Run Asniffer Analysis"/>
         </group>
     </actions>
 </idea-plugin>

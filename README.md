@@ -1,12 +1,21 @@
-# Avisualizer plugin for IntelliJ
+# Asniffer Tools
 
-Develop a IntelliJ plugin to display AVisualizer while browsing project. 
+This plugin is going to integrate the [Asniffer](https://github.com/metaisbeta/asniffer) and [Avisualizer](https://github.com/metaisbeta/avisualizer) capabilities into your IDE, JetBrains InteliJ.
 
+**How to use:**
+* Install this plugin. You can find it at [InteliJ Marketplace](https://plugins.jetbrains.com/plugin/18237-asniffer-visualizer)
+* Open your java project in your InteliJ IDE
+* Click the "Avisualizer Tools -> Run Asniffer" button in the menu bar.
+* Open the visualization in the side bar.
+
+![](assets/plugin_usage.gif)
+
+**Plugin Description:**
 <!-- Plugin description -->
-**IntelliJ Platform Plugin Template** is a repository that provides a pure boilerplate template to make it easier to create a new plugin project (check the [Creating a repository from a template][gh:template] article).
+**Asniffer Tools** is a plugin for **Java** projects that provides a deep analysis and visualization for your project. We will provide a integrated annotation visualization in a Web Browser (based on GIdea Browser).
 
-The main goal of this template is to speed up the setup phase of plugin development for both new and experienced developers by preconfiguring the project scaffold and CI, linking to the proper documentation pages, and keeping everything organized.
+The main goal of this project is make it easier to integrate the Asniffer Ecosystem into your favorite IDE. Please check your [project](https://github.com/metaisbeta/intelliJ-avisualizer-plugin) for more information.
 
-[gh:template]: https://help.github.com/en/enterprise/2.20/user/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
+This plugin supports every Java version below 5.0.
 <!-- Plugin description end -->
 
