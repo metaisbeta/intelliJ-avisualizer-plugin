@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>org.metaisbeta.plugins.asniffer</id>
-    <name>ASniffer Visualizer</name>
+    <name>ASniffer Tools</name>
     <vendor>metaisbeta</vendor>
 
     <!-- Product and plugin compatibility requirements -->

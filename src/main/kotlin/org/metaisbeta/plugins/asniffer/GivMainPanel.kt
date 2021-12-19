@@ -12,6 +12,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.ui.jcef.JBCefBrowser
 import org.metaisbeta.plugins.asniffer.actions.*
+import org.metaisbeta.plugins.asniffer.services.ASnifferService
 import javax.swing.ImageIcon
 
 
@@ -66,4 +67,9 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
     override fun dispose() {
         jbCefBrowser.dispose()
     }
+
+    public fun changeURl(loadURl: String){
+        jbCefBrowser.loadURL(loadURl);
+    }
+
 }

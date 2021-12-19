@@ -10,8 +10,11 @@ import com.github.phillima.asniffer.output.json.d3hierarchy.systemview.JSONRepor
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.application.ApplicationManager
+import com.intellij.ui.jcef.JBCefBrowser
 import org.jetbrains.concurrency.runAsync
+import org.metaisbeta.plugins.asniffer.GivMainPanel
 import org.metaisbeta.plugins.asniffer.SettingsChangedAction
+import org.metaisbeta.plugins.asniffer.gcef.GBCefBrowser
 import java.io.File
 import java.net.URI
 import java.net.http.HttpClient
@@ -21,9 +24,11 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.time.LocalDateTime
 
 data class AvisualizerModel(val name: String, val cv: String, val pv: String, val sv: String)
 data class AvisualizerModelResponse(val id: String, val name: String, val cv: String, val sv: String, val pv: String, val last_update: String)
+data class AvisualizerProjectIdentification(val id: String, val last_updated: String)
 
 class ASnifferService : AnAction() {
 
@@ -72,7 +77,11 @@ class ASnifferService : AnAction() {
 
             val modelResponse: AvisualizerModelResponse = mapper.readValue(response.body())
 
+            var modelIdentification = AvisualizerProjectIdentification(modelResponse.id, LocalDateTime.now().toString());
+            mapper.writeValue(File(Paths.get(projectPath.toString(), e.project!!.name + "-metadata.json").toString()),modelIdentification);
+
             GivServiceSettings.instance().addFavorite("https://avisualizer.vercel.app?projeto=${modelResponse.id}")
+            GivServiceSettings.instance().saveHomePage("https://avisualizer.vercel.app?projeto=${modelResponse.id}")
             val bus = ApplicationManager.getApplication().messageBus
             bus.syncPublisher(SettingsChangedAction.TOPIC).settingsChanged()
         }
