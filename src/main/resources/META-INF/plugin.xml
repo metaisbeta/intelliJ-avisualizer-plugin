@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>ASnifferVisualizer</name>
-    <vendor>MetaIsBeta</vendor>
+    <id>org.metaisbeta.plugins.asniffer</id>
+    <name>ASniffer Visualizer</name>
+    <vendor>metaisbeta</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -12,19 +12,19 @@
         <!-- Add your extensions here -->
 
 
-        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.GivServiceSettings"/>
-        <projectConfigurable parentId="tools" instance="org.jetbrains.plugins.template.settings.ProjectSettingsConfigurable"
-                             id="org.jetbrains.plugins.template.settings.ProjectSettingsConfigurable" displayName="Avisualizer Embedded Browser"
+        <applicationService serviceImplementation="org.metaisbeta.plugins.asniffer.services.GivServiceSettings"/>
+        <projectConfigurable parentId="tools" instance="org.metaisbeta.plugins.asniffer.settings.ProjectSettingsConfigurable"
+                             id="org.metaisbeta.plugins.asniffer.settings.ProjectSettingsConfigurable" displayName="Avisualizer Embedded Browser"
                              nonDefaultProject="true"/>
 
-        <toolWindow id="Asniffer Plugin" icon="/icons/icon.svg" anchor="right" factoryClass="org.jetbrains.plugins.template.GivToolWindowFactory"/>
+        <toolWindow id="Asniffer Plugin" icon="/icons/icon.svg" anchor="right" factoryClass="org.metaisbeta.plugins.asniffer.GivToolWindowFactory"/>
 
     </extensions>
 
     <actions>
         <group id="ASnifferVisualizer.RunAsniffer" text="Asniffer Plugin" description="Asniffer methods">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action class="org.jetbrains.plugins.template.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsniffer"
+            <action class="org.metaisbeta.plugins.asniffer.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsniffer"
                     text="Run Asniffer"/>
         </group>
     </actions>
