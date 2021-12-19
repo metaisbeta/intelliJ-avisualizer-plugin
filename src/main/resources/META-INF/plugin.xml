@@ -26,8 +26,6 @@
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action class="org.jetbrains.plugins.template.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsniffer"
                     text="Run Asniffer"/>
-            <action class="org.jetbrains.plugins.template.services.AvisualizerService" id="ASnifferVisualizer.Actions.ExecuteAvisualizer"
-                    text="Update Avisualizer"/>
         </group>
     </actions>
 </idea-plugin>
