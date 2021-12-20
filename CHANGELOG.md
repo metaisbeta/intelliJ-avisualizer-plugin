@@ -1,6 +1,15 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# Asniffer Plugin Changelog
+# Asniffer Tools Changelog
+
+## [1.0.2]
+### Added
+- Automatic render page after Asniffer analysis.
+
+## [1.0.1]
+### Added
+- Minor bug fixes
+
 ## [1.0.0]
 ### Added
 - First Release

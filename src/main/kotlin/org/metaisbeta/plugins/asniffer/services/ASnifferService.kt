@@ -32,6 +32,8 @@ data class AvisualizerProjectIdentification(val id: String, val last_updated: St
 
 class ASnifferService : AnAction() {
 
+    var visualizerURL = "https://avisualizer.vercel.app"
+
     override fun actionPerformed(e: AnActionEvent) {
         runAsync {
             runAsniffer(e)
@@ -80,8 +82,8 @@ class ASnifferService : AnAction() {
             var modelIdentification = AvisualizerProjectIdentification(modelResponse.id, LocalDateTime.now().toString());
             mapper.writeValue(File(Paths.get(projectPath.toString(), e.project!!.name + "-metadata.json").toString()),modelIdentification);
 
-            GivServiceSettings.instance().addFavorite("https://avisualizer.vercel.app?projeto=${modelResponse.id}")
-            GivServiceSettings.instance().saveHomePage("https://avisualizer.vercel.app?projeto=${modelResponse.id}")
+            GivServiceSettings.instance().addFavorite(visualizerURL + "?projeto=${modelResponse.id}")
+            GivServiceSettings.instance().saveHomePage(visualizerURL + "?projeto=${modelResponse.id}")
             val bus = ApplicationManager.getApplication().messageBus
             bus.syncPublisher(SettingsChangedAction.TOPIC).settingsChanged()
         }

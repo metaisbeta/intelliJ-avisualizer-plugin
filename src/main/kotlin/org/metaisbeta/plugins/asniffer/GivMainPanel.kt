@@ -42,6 +42,7 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
         bus.connect().subscribe(SettingsChangedAction.TOPIC, object : SettingsChangedAction {
             override fun settingsChanged() {
                 bookMarkFavorites.updateView(GivServiceSettings.instance(), jbCefBrowser)
+                jbCefBrowser.loadURL(GivServiceSettings.instance().getLastSaveHomePage());
             }
         })
 

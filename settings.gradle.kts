@@ -1,2 +1,1 @@
-rootProject.name = "Asniffer Intelin Plugin"
-include("avisualizer")
+rootProject.name = "Asniffer Tools Plugin"
