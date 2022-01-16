@@ -9,10 +9,10 @@ plugins {
     // Kotlin support
     id("org.jetbrains.kotlin.jvm") version "1.5.31"
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-    id("org.jetbrains.intellij") version "1.1.6"
+    id("org.jetbrains.intellij") version "1.3.0"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
-    id("org.jetbrains.changelog") version "1.3.0"
-    id("org.jetbrains.qodana") version "0.1.12"
+    id("org.jetbrains.changelog") version "1.3.1"
+    id("org.jetbrains.qodana") version "0.1.13"
     kotlin("plugin.serialization") version "1.5.31"
 }
 

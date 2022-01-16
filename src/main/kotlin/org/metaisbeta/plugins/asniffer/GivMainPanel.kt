@@ -12,7 +12,6 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.ui.jcef.JBCefBrowser
 import org.metaisbeta.plugins.asniffer.actions.*
-import org.metaisbeta.plugins.asniffer.services.ASnifferService
 import javax.swing.ImageIcon
 
 
@@ -21,6 +20,7 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
     Disposable {
 
     private val jbCefBrowser: JBCefBrowser = GBCefBrowser(initialUrl)
+    private val visualizerURL = "https://avisualizer.vercel.app"
 
     init {
         toolbar =
@@ -46,6 +46,18 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
             }
         })
 
+        bus.connect().subscribe(LoadingPageAction.LOADING_TOPIC, object : LoadingPageAction {
+            override fun loadingPage() {
+                jbCefBrowser.loadURL("$visualizerURL/loading")
+            }
+        })
+
+        bus.connect().subscribe(ErrorPageAction.ERROR_TOPIC, object : ErrorPageAction {
+            override fun errorPage() {
+                jbCefBrowser.loadURL("$visualizerURL/error")
+            }
+        })
+
         val urlTextField = GSearchFieldAction(initialUrl, "Web address",
             ImageIcon(javaClass.getResource("/actions/refresh.png")),
             jbCefBrowser)
@@ -68,9 +80,4 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
     override fun dispose() {
         jbCefBrowser.dispose()
     }
-
-    public fun changeURl(loadURl: String){
-        jbCefBrowser.loadURL(loadURl);
-    }
-
 }

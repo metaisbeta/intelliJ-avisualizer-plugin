@@ -10,11 +10,10 @@ import com.github.phillima.asniffer.output.json.d3hierarchy.systemview.JSONRepor
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.ui.jcef.JBCefBrowser
 import org.jetbrains.concurrency.runAsync
-import org.metaisbeta.plugins.asniffer.GivMainPanel
+import org.metaisbeta.plugins.asniffer.ErrorPageAction
 import org.metaisbeta.plugins.asniffer.SettingsChangedAction
-import org.metaisbeta.plugins.asniffer.gcef.GBCefBrowser
+import org.metaisbeta.plugins.asniffer.LoadingPageAction
 import java.io.File
 import java.net.URI
 import java.net.http.HttpClient
@@ -43,50 +42,55 @@ class ASnifferService : AnAction() {
     }
 
     fun runAsniffer(e: AnActionEvent) {
-        if (e.project?.basePath != null) {
-            var basePath = e.project?.basePath
-            val projectPath: Path = Paths.get(basePath + File.separator + ".idea" + File.separator + "asniffer")
-            val report: AMReport = ASniffer(basePath, basePath).collectSingle()
+        try {
+            if (e.project?.basePath != null) {
+                ApplicationManager.getApplication().messageBus.syncPublisher(LoadingPageAction.LOADING_TOPIC).loadingPage()
+                var basePath = e.project?.basePath
+                val projectPath: Path = Paths.get(basePath + File.separator + ".idea" + File.separator + "asniffer")
+                val report: AMReport = ASniffer(basePath, basePath).collectSingle()
 
-            val directory = File(projectPath.toUri())
-            if (!directory.exists()) {
-                directory.mkdir()
+                val directory = File(projectPath.toUri())
+                if (!directory.exists()) {
+                    directory.mkdir()
+                }
+
+                val dirPathResults: String = Paths.get(projectPath.toString()).normalize().toString()
+
+                //Bug
+                JSONReportCV().generateReport(report, dirPathResults)
+                JSONReportSV().generateReport(report, dirPathResults)
+                JSONReportPV().generateReport(report, dirPathResults)
+
+                val cvString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-CV.json"), StandardCharsets.UTF_8)
+                val pvString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-PV.json"), StandardCharsets.UTF_8)
+                val svString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-SV.json"), StandardCharsets.UTF_8)
+
+
+                var model = AvisualizerModel(e.project!!.name, cvString, pvString, svString);
+                val mapper = jacksonObjectMapper()
+                val requestBody: String = mapper.writeValueAsString(model)
+
+                val client = HttpClient.newBuilder().build();
+                val request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://asniffer-web-api.herokuapp.com/data/save"))
+                    .header("Content-Type","application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                    .build()
+                val response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                val modelResponse: AvisualizerModelResponse = mapper.readValue(response.body())
+
+                var modelIdentification = AvisualizerProjectIdentification(modelResponse.id, LocalDateTime.now().toString());
+                mapper.writeValue(File(Paths.get(projectPath.toString(), e.project!!.name + "-metadata.json").toString()),modelIdentification);
+
+                //GivServiceSettings.instance().addFavorite(visualizerURL + "?projeto=${modelResponse.id}")
+                GivServiceSettings.instance().saveHomePage(visualizerURL + "?projeto=${modelResponse.id}")
+                ApplicationManager.getApplication().messageBus.syncPublisher(SettingsChangedAction.TOPIC).settingsChanged()
             }
-
-            val dirPathResults: String = Paths.get(projectPath.toString()).normalize().toString()
-
-            //Bug
-            JSONReportCV().generateReport(report, dirPathResults)
-            JSONReportSV().generateReport(report, dirPathResults)
-            JSONReportPV().generateReport(report, dirPathResults)
-
-            val cvString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-CV.json"), StandardCharsets.UTF_8)
-            val pvString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-PV.json"), StandardCharsets.UTF_8)
-            val svString: String = Files.readString(Paths.get(projectPath.toString(), e.project!!.name + "-SV.json"), StandardCharsets.UTF_8)
-
-
-            var model = AvisualizerModel(e.project!!.name, cvString, pvString, svString);
-            val mapper = jacksonObjectMapper()
-            val requestBody: String = mapper.writeValueAsString(model)
-
-            val client = HttpClient.newBuilder().build();
-            val request = HttpRequest.newBuilder()
-                .uri(URI.create("https://asniffer-web-api.herokuapp.com/data/save"))
-                .header("Content-Type","application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                .build()
-            val response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            val modelResponse: AvisualizerModelResponse = mapper.readValue(response.body())
-
-            var modelIdentification = AvisualizerProjectIdentification(modelResponse.id, LocalDateTime.now().toString());
-            mapper.writeValue(File(Paths.get(projectPath.toString(), e.project!!.name + "-metadata.json").toString()),modelIdentification);
-
-            GivServiceSettings.instance().addFavorite(visualizerURL + "?projeto=${modelResponse.id}")
-            GivServiceSettings.instance().saveHomePage(visualizerURL + "?projeto=${modelResponse.id}")
-            val bus = ApplicationManager.getApplication().messageBus
-            bus.syncPublisher(SettingsChangedAction.TOPIC).settingsChanged()
+        } catch (er: Exception){
+            ApplicationManager.getApplication().messageBus.syncPublisher(ErrorPageAction.ERROR_TOPIC).errorPage()
         }
+
     }
 
 

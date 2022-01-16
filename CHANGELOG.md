@@ -2,6 +2,10 @@
 
 # Asniffer Tools Changelog
 
+## [1.0.3]
+### Added
+- Add support to loading and error page.
+
 ## [1.0.2]
 ### Added
 - Automatic render page after Asniffer analysis.
