@@ -23,11 +23,12 @@ class GivMainPanel(private val initialUrl: String) : SimpleToolWindowPanel(true,
     private val visualizerURL = "https://avisualizer.vercel.app"
 
     init {
-        toolbar =
-            ActionManager.getInstance()
-                .createActionToolbar(ActionPlaces.CONTEXT_TOOLBAR, buildToolbar(), true).component
+        val toolbar =
+            ActionManager.getInstance().createActionToolbar(ActionPlaces.CONTEXT_TOOLBAR, buildToolbar(), true).apply {
+                targetComponent = this@GivMainPanel
+            }
         setContent(jbCefBrowser.component)
-
+        setToolbar(toolbar.component)
     }
 
     private fun buildToolbar(): DefaultActionGroup {
