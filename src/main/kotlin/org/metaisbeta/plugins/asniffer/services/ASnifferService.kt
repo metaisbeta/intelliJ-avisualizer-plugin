@@ -26,8 +26,9 @@ import java.nio.file.Paths
 import java.time.LocalDateTime
 
 data class AvisualizerModel(val name: String, val cv: String, val pv: String, val sv: String)
-data class AvisualizerModelResponse(val id: String, val name: String, val cv: String, val sv: String, val pv: String, val last_update: String)
+data class AvisualizerModelResponse(val id: String, val name: String, val hash: String, val cv: String, val sv: String, val pv: String, val last_update: String)
 data class AvisualizerProjectIdentification(val id: String, val last_updated: String)
+data class ErrorModel(val os: String, val project_name: String, val error_message: String)
 
 class ASnifferService : AnAction() {
 
@@ -45,6 +46,7 @@ class ASnifferService : AnAction() {
         try {
             if (e.project?.basePath != null) {
                 ApplicationManager.getApplication().messageBus.syncPublisher(LoadingPageAction.LOADING_TOPIC).loadingPage()
+                //throw IllegalArgumentException("erro")
                 var basePath = e.project?.basePath
                 val projectPath: Path = Paths.get(basePath + File.separator + ".idea" + File.separator + "asniffer")
                 val report: AMReport = ASniffer(basePath, basePath).collectSingle()
@@ -89,6 +91,24 @@ class ASnifferService : AnAction() {
             }
         } catch (er: Exception){
             ApplicationManager.getApplication().messageBus.syncPublisher(ErrorPageAction.ERROR_TOPIC).errorPage()
+            try{
+                var model = ErrorModel(System.getProperty("os.name"),e.project!!.name, er.toString());
+                val mapper = jacksonObjectMapper()
+                val requestBody: String = mapper.writeValueAsString(model)
+
+                val client = HttpClient.newBuilder().build();
+                val request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://asniffer-web-api.herokuapp.com/data/error"))
+                    .header("Content-Type","application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                    .build()
+
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+            } catch (er2: Exception){
+                //Non-blocking error
+            }
+
+
         }
 
     }
