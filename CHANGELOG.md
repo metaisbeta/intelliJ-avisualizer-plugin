@@ -2,6 +2,10 @@
 
 # Asniffer Tools Changelog
 
+## [1.0.5]
+### Added
+- User Experience improvement and README.md fix.
+
 ## [1.0.3]
 ### Added
 - Add support to loading and error page.

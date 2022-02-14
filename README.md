@@ -12,10 +12,11 @@ This plugin is going to integrate the [Asniffer](https://github.com/metaisbeta/a
 
 **Plugin Description:**
 <!-- Plugin description -->
-**Asniffer Tools** is a plugin for **Java** projects that provides a deep analysis and visualization for your project. We will provide a integrated annotation visualization in a Web Browser (based on GIdea Browser).
+**Asniffer Tools** is a plugin for **Java** projects that provides a deep annotation analysis and a visualization for your project. 
+We will provide an integrated annotation visualization in a Web Browser (based on GIdea Browser).
 
 The main goal of this project is make it easier to integrate the Asniffer Ecosystem into your favorite IDE. Please check your [project](https://github.com/metaisbeta/intelliJ-avisualizer-plugin) for more information.
 
-This plugin supports every Java version below 5.0.
+This plugin supports every Java version above 5.0.
 <!-- Plugin description end -->
 
