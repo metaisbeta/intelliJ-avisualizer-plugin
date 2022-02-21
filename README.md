@@ -5,8 +5,9 @@ This plugin is going to integrate the [Asniffer](https://github.com/metaisbeta/a
 **How to use:**
 * Install this plugin. You can find it at [InteliJ Marketplace](https://plugins.jetbrains.com/plugin/18237-asniffer-visualizer)
 * Open your java project in your InteliJ IDE
-* Click the "Avisualizer Tools -> Run Asniffer" button in the menu bar.
 * Open the visualization in the side bar.
+* Click the "Avisualizer Tools -> Run Asniffer" button in the menu bar.
+
 
 ![](assets/plugin_usage.gif)
 
