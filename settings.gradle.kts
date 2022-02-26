@@ -1,1 +1,1 @@
-rootProject.name = "Asniffer Tools Plugin"
+rootProject.name = "Annotation Visualizer Plugin"

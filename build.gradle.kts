@@ -26,8 +26,8 @@ repositories {
 }
 dependencies {
     implementation("io.github.phillima:asniffer:3.0.0")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.0")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 }
 
 // Configure gradle-intellij-plugin plugin.
