@@ -1,6 +1,12 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# Asniffer Tools Changelog
+# Annotation Visualizer Plugin
+
+## [1.0.6]
+### Added
+- Changed license to GPL-3.0
+- Changed name to "Annotation Visualizer Plugin"
+- Add Non-Persistent Data Analysis
 
 ## [1.0.5]
 ### Added
