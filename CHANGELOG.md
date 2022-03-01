@@ -2,6 +2,10 @@
 
 # Annotation Visualizer Plugin
 
+## [1.0.7]
+### Added
+- Minor visual adjustments
+
 ## [1.0.6]
 ### Added
 - Changed license to GPL-3.0

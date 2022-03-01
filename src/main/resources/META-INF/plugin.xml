@@ -25,9 +25,9 @@
         <group id="ASnifferVisualizer.RunAsniffer" text="Annotation Visualizer" description="Annotation Visualizer">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action class="org.metaisbeta.plugins.asniffer.services.ASnifferService" id="ASnifferVisualizer.Actions.RunAsnifferPersist"
-                    text="Run Asniffer Analysis"/>
+                    text="Run Annotation Analysis"/>
             <action class="org.metaisbeta.plugins.asniffer.services.AsnifferServiceNotPersist" id="ASnifferVisualizer.Actions.RunAsnifferNotPersist"
-                    text="Run Asniffer Analysis (Not Persist)"/>
+                    text="Run Annotation Analysis (Not Persist)"/>
         </group>
     </actions>
 </idea-plugin>
