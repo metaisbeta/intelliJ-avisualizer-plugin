@@ -1,6 +1,6 @@
 ---
-title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annotations Metrics' tags:
-
+title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annotations Metrics' 
+tags:
 - Java
 - metadata
 - annotations
@@ -8,13 +8,17 @@ title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annota
 - source-code-analysis
 - visualization
 - plugin
-- product integration authors:
+- product integration 
+authors:
 - name: Sérgio Pires orcid: 0000-0000-0000-0000 affiliation: "1" #
 - name: Phyllipe Lima orcid: 0000-0002-8358-4405 affiliation: "1" #
 - name: Eduardo Guerra orcid: 0000-0001-5555-3487 affiliation: "1" #
 - name: Paulo Meirelles orcid: 0000-0002-8923-2814 affiliation: "1" #
-- name: Everaldo Gomes orcid: 0000-0002-8923-2814 affiliation: "1" # affiliations:
-- name: UFABC, Universidade Federal do ABC, Brazil index: 1 date: 12 March 2022 bibliography: paper.bib
+- name: Everaldo Gomes orcid: 0000-0002-8923-2814 affiliation: "1" # 
+affiliations:
+- name: UFABC, Universidade Federal do ABC, Brazil index: 1 
+date: 12 March 2022 
+bibliography: paper.bib
 ---
 
 # Summary
