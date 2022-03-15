@@ -267,16 +267,20 @@ and others.
 # Annotation Visualizer Plugin
 
 The plugin will be the user interface with the ASniffer ecosystem. It is a plugin for the InteliJ IDE, which is
-developed and maintained by JetBrains. This plugin is responsible for showing a browser web to the user with a custom
-view of Avisualizer. There are two ways to interact with the plugin, the first is a button that will be on the toolbar,
+developed and maintained by JetBrains. This plugin is responsible for showing a embedded browser web to the user with 
+Annotation Visualizer Home Page. There are two ways to interact with the plugin, the first is a button that will be on the toolbar,
 which will be responsible for starting the analysis of the user's current project. The second is a modified browser
-integrated with the plugin. It will be responsible for showing the service preview of AVisualizer.
+integrated with the plugin. It will be responsible for showing the browse with Avisualizer.
 
-The \emph{browser} integrated in this plugin is an adaptation of the GIdea Browser, which is a free
-(open source) implementation for InteliJ. The browser engine used by this project is the Java Chromium Embedded
-Framework (JCEF), which is a free implementation of Chromium in the Java language, in which it has the APIs in which we
-interact with the browser. Thus, plugin will be able to load custom URLs} via code, in this way we will show the user
-your project, as exemplified in Figure
+There is two ways of interaction with the plugin, The user can run an analysis and run a not persistent analysis. The main
+different between them two is that if you choose to not persist, the id of your project is going to be a random UUID and it
+will be deleted from our database in the first search. (melhorar isso pelamor)
+
+The browser integrated in this plugin is an adaptation of the [GIdea Browser](https://github.com/Jonatha1983/GIdeaBrowser)
+, which is a free (open source) implementation for InteliJ, under Apache 2.0 License. The browser engine used by this 
+project is the Java Chromium Embedded Framework (JCEF), which is a free implementation of Chromium in the Java language,
+in which it has the APIs in which we interact with the browser. Thus, plugin will be able to load custom URLs via code, 
+in this way we will show the user your project, as exemplified in Figure
 
 # System Architecture
 
@@ -322,7 +326,7 @@ we will show in the browser attached to the plugin a URL of the AVisualizer cont
 parameter, Avisualizer makes a request to the Asniffer API and renders the data according to what the application
 responds to. A sequence diagram of this flow is shown in Figure.
 
-# Related Work
+# Related Work - mudar, colocar os trabalhos do grupo
 
 We developed the ASniffer tool to support the research published on [@LIMA2018], i.e., collect the novel suite of
 annotation metrics. Given that these were unpublished metrics, there are no available tools for comparison. However,
@@ -338,7 +342,7 @@ reference for the development of the ASniffer.
 <p>Annotation Sniffer Web API is licensed under the GNU Lesser General Public License v3.0</p>
 <p>Annotation Visualizer Plugin is licensed under the GNU Lesser General Public License v3.0</p>
 
-# Acknowledgements
+# Acknowledgements - seria só a ufabc?
 
 This work is supported by FAPESP (Fundação de Amparo à Pesquisa do Estado de São Paulo), grant 2014/16236-6 and CAPES
 (Coordenação de Aperfeiçoamento de Pessoal de Nível Superior)
