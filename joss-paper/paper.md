@@ -1,5 +1,4 @@
 ---
-
 title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annotations Metrics' tags:
 
 - Java
@@ -16,7 +15,6 @@ title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annota
 - name: Paulo Meirelles orcid: 0000-0002-8923-2814 affiliation: "1" #
 - name: Everaldo Gomes orcid: 0000-0002-8923-2814 affiliation: "1" # affiliations:
 - name: UFABC, Universidade Federal do ABC, Brazil index: 1 date: 12 March 2022 bibliography: paper.bib
-
 ---
 
 # Summary
