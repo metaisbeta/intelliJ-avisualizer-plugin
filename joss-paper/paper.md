@@ -1,5 +1,5 @@
 ---
-title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annotations Metrics' 
+title: 'Annotation Visualizer Plugin: A tool to Visualize an Extract Code Annotations Metrics'
 tags:
 - Java
 - metadata
@@ -8,17 +8,31 @@ tags:
 - source-code-analysis
 - visualization
 - plugin
-- product integration 
+- product integration
 authors:
-- name: Sérgio Pires orcid: 0000-0000-0000-0000 affiliation: "1" #
-- name: Phyllipe Lima orcid: 0000-0002-8358-4405 affiliation: "1" #
-- name: Eduardo Guerra orcid: 0000-0001-5555-3487 affiliation: "1" #
-- name: Paulo Meirelles orcid: 0000-0002-8923-2814 affiliation: "1" #
-- name: Everaldo Gomes orcid: 0000-0002-8923-2814 affiliation: "1" # 
-affiliations:
-- name: UFABC, Universidade Federal do ABC, Brazil index: 1 
-date: 12 March 2022 
-bibliography: paper.bib
+- name: Sergio Pires
+  orcid: 0000-0000-0000-0000
+  affiliation: "1" #
+- name: Phyllipe Lima
+  orcid: 0000-0002-8358-4405
+  affiliation: "1,2" #
+- name: Eduardo Guerra
+  orcid: 0000-0001-5555-3487
+  affiliation: "2" #
+- name: Paulo Meirelles
+  orcid: 0000-0002-8923-2814
+  affiliation: "3,4" #
+  affiliations:
+- name: CDG, National Institute of Telecommunications - INATEL, Brazil
+  index: 1
+- name: LAC, National Institute for Space Research - INPE, Brazil
+  index: 2
+- name: EPM, Federal University of São Paulo - UNIFESP, Brazil
+  index: 3
+- name: IME, University of São Paulo - USP, Brazil
+  index: 4
+  date: 17 March 2022
+  bibliography: paper.bib
 ---
 
 # Summary
